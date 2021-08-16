@@ -2,10 +2,10 @@ package Lesson5.Task1;
 
 public class Birds {
 
-    private static int sumOfBirds;
+    private static double sumOfBirds;
 
     private String typeOfBird;
-    private int weight;
+    private double weight;
 
     {
         weight = 2;
@@ -13,20 +13,21 @@ public class Birds {
 
     public Birds(String typeOfBird) {
         this.typeOfBird = typeOfBird;
-        sumOfBirds += weight;
+        sumOfBirds += this.weight;
     }
 
-    public Birds(String typeOfBird, int weight) {
+    public Birds(String typeOfBird, double weight) {
+        this.weight = weight;
         this.typeOfBird = typeOfBird;
         sumOfBirds += weight;
     }
 
     //    get-set
-    public static int getSumOfBirds() {
+    public static double getSumOfBirds() {
         return sumOfBirds;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
@@ -34,9 +35,10 @@ public class Birds {
         return typeOfBird;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
+        sumOfBirds -= this.weight;
         this.weight = weight;
+        sumOfBirds += weight;
     }
-
 }
 
