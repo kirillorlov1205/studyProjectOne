@@ -8,7 +8,7 @@ public class Birds {
     private double weight;
 
     {
-        weight = 2;
+        weight = 0;
     }
 
     public Birds(String typeOfBird) {
