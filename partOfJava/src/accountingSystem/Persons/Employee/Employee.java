@@ -1,8 +1,8 @@
-package officeSystem.Persons.Employee;
+package accountingSystem.Persons.Employee;
 
-import officeSystem.IdCard;
-import officeSystem.Persons.Persons;
-import officeSystem.Persons.StatusOfPerson;
+import accountingSystem.IdCard;
+import accountingSystem.Persons.Persons;
+import accountingSystem.Persons.StatusOfPerson;
 
 public class Employee extends Persons {
 

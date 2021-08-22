@@ -1,6 +1,6 @@
-package officeSystem.Persons.Employee;
+package accountingSystem.Persons.Employee;
 
-import officeSystem.Persons.StatusOfPerson;
+import accountingSystem.Persons.StatusOfPerson;
 
 public class IT extends Employee{
 

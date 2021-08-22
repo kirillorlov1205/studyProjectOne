@@ -1,7 +1,7 @@
-package officeSystem;
+package accountingSystem;
 
-import officeSystem.Persons.Employee.Employee;
-import officeSystem.Persons.StatusOfPerson;
+import accountingSystem.Persons.Employee.Employee;
+import accountingSystem.Persons.StatusOfPerson;
 
 import java.util.Arrays;
 

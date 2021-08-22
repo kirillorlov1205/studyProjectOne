@@ -1,4 +1,4 @@
-package officeSystem;
+package accountingSystem;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;

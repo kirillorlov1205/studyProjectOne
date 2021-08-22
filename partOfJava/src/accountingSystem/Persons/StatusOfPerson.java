@@ -1,4 +1,4 @@
-package officeSystem.Persons;
+package accountingSystem.Persons;
 
 public enum StatusOfPerson {
 	INOFFICE,

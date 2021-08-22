@@ -1,11 +1,8 @@
-package officeSystem;
+package accountingSystem;
 
-import officeSystem.Persons.Employee.DevOps;
-import officeSystem.Persons.Employee.Employee;
-import officeSystem.Persons.Managers.Director;
-import officeSystem.Persons.StatusOfPerson;
-
-import java.util.Arrays;
+import accountingSystem.Persons.Employee.DevOps;
+import accountingSystem.Persons.Managers.Director;
+import accountingSystem.Persons.StatusOfPerson;
 
 public class Main { //Tests
 

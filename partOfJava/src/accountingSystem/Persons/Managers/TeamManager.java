@@ -1,6 +1,6 @@
-package officeSystem.Persons.Managers;
+package accountingSystem.Persons.Managers;
 
-import officeSystem.Persons.StatusOfPerson;
+import accountingSystem.Persons.StatusOfPerson;
 
 public class TeamManager extends Managers {
 

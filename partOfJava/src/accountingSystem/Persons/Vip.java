@@ -1,4 +1,4 @@
-package officeSystem.Persons;
+package accountingSystem.Persons;
 
 public interface Vip {
 //	У Заместителя Директора, у Директора и у Системных администраторов должна быть
