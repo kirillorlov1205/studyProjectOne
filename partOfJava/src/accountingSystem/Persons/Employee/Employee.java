@@ -19,14 +19,6 @@ public class Employee extends Persons {
 		idCard = new IdCard();
 	}
 
-	public void goToOffice(){
-		statusOfPerson = StatusOfPerson.INOFFICE;
-	}
-
-	public void goToOfficeWithoutCard(){
-		statusOfPerson = StatusOfPerson.INOFFICEWITHOUTCARD;
-	}
-
 	public String getfName() {
 		return fName;
 	}
@@ -35,11 +27,11 @@ public class Employee extends Persons {
 		return lName;
 	}
 
-	public IdCard getIdCard(){
+	public IdCard getIdCard() {
 		return idCard;
 	}
 
-	public StatusOfPerson getStatusOfPerson(){
+	public StatusOfPerson getStatusOfPerson() {
 		return statusOfPerson;
 	}
 

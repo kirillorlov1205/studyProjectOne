@@ -2,7 +2,7 @@ package accountingSystem.Persons.Employee;
 
 import accountingSystem.Persons.StatusOfPerson;
 
-public class Staff extends Employee{
+public class Staff extends Employee {
 
 
 	public Staff(String fName, String lName, StatusOfPerson statusOfPerson) {

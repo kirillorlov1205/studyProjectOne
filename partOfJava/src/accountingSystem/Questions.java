@@ -16,7 +16,4 @@ public class Questions {
 //			personsArr[index++] = employee;
 //		}
 //	}
-
-//3.
-
 }

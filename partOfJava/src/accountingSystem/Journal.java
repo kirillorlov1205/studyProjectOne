@@ -37,13 +37,13 @@ public class Journal {
 
 	public void checkpoint(Employee employee) {
 		for (int i = 0; i < personsArr.length - 1; i++) {
-			if(personsArr[i] == null){
+			if (personsArr[i] == null) {
 				break;
 			}
 			if (personsArr[i].getIdCard().getId() == employee.getIdCard().getId() &&
 					personsArr[i].getfName().equals(employee.getfName()) &&
 					personsArr[i].getlName().equals(employee.getlName())
-			){
+			) {
 				employee.setStatusOfPerson(StatusOfPerson.INOFFICE);
 				return;
 			}

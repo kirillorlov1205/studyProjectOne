@@ -9,9 +9,9 @@ public class Main { //Tests
 	public static void main(String[] args) {
 
 //		DevOps
-		DevOps Tom = new DevOps("Tom","Blanko",StatusOfPerson.OUTOFOFFICE);
-		DevOps Donny = new DevOps("Donny","Torro",StatusOfPerson.OUTOFOFFICE);
-		DevOps Donny1 = new DevOps("Donny1","Torro1",StatusOfPerson.OUTOFOFFICE);
+		DevOps Tom = new DevOps("Tom", "Blanko", StatusOfPerson.OUTOFOFFICE);
+		DevOps Donny = new DevOps("Donny", "Torro", StatusOfPerson.OUTOFOFFICE);
+		DevOps Donny1 = new DevOps("Donny1", "Torro1", StatusOfPerson.OUTOFOFFICE);
 
 //		TestIdCard
 //		System.out.println(Tom.getIdCard().getId());
