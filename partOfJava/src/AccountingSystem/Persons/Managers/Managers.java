@@ -1,7 +1,7 @@
-package accountingSystem.Persons.Managers;
+package AccountingSystem.Persons.Managers;
 
-import accountingSystem.Persons.Employee.Employee;
-import accountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.Persons.Employee.Employee;
+import AccountingSystem.Persons.StatusOfPerson;
 
 public abstract class Managers extends Employee {
 

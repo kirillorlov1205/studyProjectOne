@@ -1,6 +1,6 @@
-package accountingSystem.Persons.Managers;
+package AccountingSystem.Persons.Managers;
 
-import accountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.Persons.StatusOfPerson;
 
 public class Accountant extends Managers {
 

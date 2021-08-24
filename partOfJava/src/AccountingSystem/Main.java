@@ -1,8 +1,8 @@
-package accountingSystem;
+package AccountingSystem;
 
-import accountingSystem.Persons.Employee.DevOps;
-import accountingSystem.Persons.Managers.Director;
-import accountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.Persons.Employee.DevOps;
+import AccountingSystem.Persons.Managers.Director;
+import AccountingSystem.Persons.StatusOfPerson;
 
 public class Main { //Tests
 

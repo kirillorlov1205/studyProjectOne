@@ -1,6 +1,6 @@
-package accountingSystem.Persons.Employee;
+package AccountingSystem.Persons.Employee;
 
-import accountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.Persons.StatusOfPerson;
 
 public class Staff extends Employee {
 

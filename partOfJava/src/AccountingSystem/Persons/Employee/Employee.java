@@ -1,8 +1,8 @@
-package accountingSystem.Persons.Employee;
+package AccountingSystem.Persons.Employee;
 
-import accountingSystem.IdCard;
-import accountingSystem.Persons.Persons;
-import accountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.IdCard;
+import AccountingSystem.Persons.Persons;
+import AccountingSystem.Persons.StatusOfPerson;
 
 public class Employee extends Persons {
 
@@ -34,9 +34,4 @@ public class Employee extends Persons {
 	public StatusOfPerson getStatusOfPerson() {
 		return statusOfPerson;
 	}
-
-	public void setStatusOfPerson(StatusOfPerson statusOfPerson) {
-		this.statusOfPerson = statusOfPerson;
-	}
-
 }

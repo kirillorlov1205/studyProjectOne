@@ -1,4 +1,4 @@
-package accountingSystem;
+package AccountingSystem;
 
 import java.util.concurrent.ThreadLocalRandom;
 

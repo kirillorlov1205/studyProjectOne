@@ -1,7 +1,7 @@
-package accountingSystem.Persons.Employee;
+package AccountingSystem.Persons.Employee;
 
-import accountingSystem.Persons.StatusOfPerson;
-import accountingSystem.Persons.Vip;
+import AccountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.Persons.Vip;
 
 public class DevOps extends Employee implements Vip {
 

@@ -1,5 +1,6 @@
-package accountingSystem.Persons;
+package AccountingSystem.Persons;
 
 public abstract class Persons {
+
 
 }

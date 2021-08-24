@@ -1,7 +1,7 @@
-package accountingSystem.Persons.Managers;
+package AccountingSystem.Persons.Managers;
 
-import accountingSystem.Persons.StatusOfPerson;
-import accountingSystem.Persons.Vip;
+import AccountingSystem.Persons.StatusOfPerson;
+import AccountingSystem.Persons.Vip;
 
 public class DeputyDirector extends Managers implements Vip {
 

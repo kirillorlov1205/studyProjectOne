@@ -1,4 +1,4 @@
-package accountingSystem;
+package AccountingSystem;
 
 public class Questions {
 
@@ -16,4 +16,6 @@ public class Questions {
 //			personsArr[index++] = employee;
 //		}
 //	}
+//	3. todo: Еще рассказать про final
+
 }
