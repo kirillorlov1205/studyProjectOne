@@ -4,9 +4,6 @@ import AccountingSystem.Persons.Employee.Employee;
 import AccountingSystem.Persons.StatusOfPerson;
 
 public class Journal {
-//	При попытке пройти пункт контроля, должна проверяться айди карта сотрудника.
-//Если такая есть в системе и совпадает с именем и фамилией сотрудника – сотрудника можно пропустить.
-//Иначе у сотрудника должна быть пометка, которая сообщает системе, что данный сотрудник был пропущен по нажатию кнопки вахтера
 
 	private static int index = 0;
 	Employee[] personsArr = new Employee[15];
@@ -20,19 +17,6 @@ public class Journal {
 		}
 	}
 
-//	public int countPersonInOfficeWithCard() {
-//		int countPersonInOfficeWithCard = 0;
-//		for (int i = 0; i < personsArr.length - 1; i++) {
-//			if (personsArr[i].getStatusOfPerson() == StatusOfPerson.INOFFICE) {
-//				countPersonInOfficeWithCard++;
-//			}
-//			if (personsArr[i] == null) {
-//				return countPersonInOfficeWithCard;
-//			}
-//		}
-//		return countPersonInOfficeWithCard;
-//	}
-
 	public void checkpoint(Employee employee) {
 		for (int i = 0; i < personsArr.length - 1; i++) {
 			if (personsArr[i] == null) {
@@ -42,11 +26,11 @@ public class Journal {
 					personsArr[i].getfName().equals(employee.getfName()) &&
 					personsArr[i].getlName().equals(employee.getlName())
 			) {
-				employee.setStatusOfPerson(StatusOfPerson.INOFFICE);
+				employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
 				return;
 			}
 		}
-		employee.setStatusOfPerson(StatusOfPerson.INOFFICEWITHOUTCARD);
+		employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
 	}
 
 	public Employee getEmployee(int index) {

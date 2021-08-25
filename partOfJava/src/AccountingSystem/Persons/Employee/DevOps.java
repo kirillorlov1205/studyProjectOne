@@ -13,4 +13,5 @@ public class DevOps extends Employee implements Vip {
 	public void turnOnTheHandleOf123Room() {
 		System.out.println("Дверь комнты 123 открыта");
 	}
+
 }

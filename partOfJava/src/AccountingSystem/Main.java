@@ -9,9 +9,9 @@ public class Main { //Tests
 	public static void main(String[] args) {
 
 //		DevOps
-		DevOps Tom = new DevOps("Tom", "Blanko", StatusOfPerson.OUTOFOFFICE);
-		DevOps Donny = new DevOps("Donny", "Torro", StatusOfPerson.OUTOFOFFICE);
-		DevOps Donny1 = new DevOps("Donny1", "Torro1", StatusOfPerson.OUTOFOFFICE);
+		DevOps Tom = new DevOps("Tom", "Blanko", StatusOfPerson.OUT_OF_OFFICE);
+		DevOps Donny = new DevOps("Donny", "Torro", StatusOfPerson.OUT_OF_OFFICE);
+		DevOps Donny1 = new DevOps("Donny1", "Torro1", StatusOfPerson.OUT_OF_OFFICE);
 
 //		TestIdCard
 //		System.out.println(Tom.getIdCard().getId());
@@ -42,7 +42,7 @@ public class Main { //Tests
 		System.out.println(Donny1.getStatusOfPerson());
 
 //		VIP
-		Director director = new Director("Kirill", "Orlov", StatusOfPerson.OUTOFOFFICE);
+		Director director = new Director("Kirill", "Orlov", StatusOfPerson.OUT_OF_OFFICE);
 		director.turnOnTheHandleOf123Room();
 	}
 }
