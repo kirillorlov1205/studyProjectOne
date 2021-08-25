@@ -1,16 +1,24 @@
 package AccountingSystem;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class IdCard {
-	private final long id;
+	private final String id;
 
 	public IdCard() {
-//		id = UUID.randomUUID().toString();
-		id = ThreadLocalRandom.current().nextLong(1000000000L, 10000000000L);
+		int leftLimit = 48;
+		int rightLimit = 122;
+		int targetStringLength = 10;
+		Random random = new Random();
+
+		id = random.ints(leftLimit, rightLimit + 1)
+				.filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+				.limit(targetStringLength)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+				.toString();
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 }
