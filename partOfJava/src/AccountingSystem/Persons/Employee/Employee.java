@@ -34,4 +34,9 @@ public class Employee extends Persons {
 	public StatusOfPerson getStatusOfPerson() {
 		return statusOfPerson;
 	}
+
+	public void setStatusOfPerson(StatusOfPerson statusOfPerson) {
+		this.statusOfPerson = statusOfPerson;
+	}
+
 }
