@@ -1,6 +1,7 @@
 package AccountingSystem;
 
 import AccountingSystem.Persons.Employee.DevOps;
+import AccountingSystem.Persons.Employee.Employee;
 import AccountingSystem.Persons.Managers.Director;
 import AccountingSystem.Persons.StatusOfPerson;
 
@@ -17,6 +18,7 @@ public class Main { //Tests
 //		System.out.println(Tom.getIdCard().getId());
 //		System.out.println(Donny.getIdCard().getId());
 //		System.out.println(Donny1.getIdCard().getId());
+
 
 
 //		StatusOfPerson
@@ -44,5 +46,10 @@ public class Main { //Tests
 //		VIP
 		Director director = new Director("Kirill", "Orlov", StatusOfPerson.OUT_OF_OFFICE);
 		director.turnOnTheHandleOf123Room();
+
+		//	list integration
+//		journal.list.add(new Employee("Kirill","Orlov",StatusOfPerson.OUT_OF_OFFICE));
 	}
+	
+
 }

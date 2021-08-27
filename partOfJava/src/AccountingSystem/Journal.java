@@ -8,8 +8,11 @@ public class Journal {
 	private static int index = 0;
 	Employee[] personsArr = new Employee[15];
 
+//	ArrayList<Employee> list = new ArrayList<>();
+
+
 	public void addToPersonArr(Employee employee) {
-		if (index > personsArr.length - 1) { //todo: хотел написать "personsArr[index] > personsArr.length"  - не работает, прошу объяснить
+		if (index > personsArr.length - 1) {
 			System.out.println("Out of limit of Persons");
 			return;
 		} else {
@@ -23,8 +26,8 @@ public class Journal {
 				break;
 			}
 			if (personsArr[i].getIdCard().getId() == employee.getIdCard().getId() &&
-					personsArr[i].getfName().equals(employee.getfName()) &&
-					personsArr[i].getlName().equals(employee.getlName())
+					personsArr[i].getFirstName().equals(employee.getFirstName()) &&
+					personsArr[i].getLastName().equals(employee.getLastName())
 			) {
 				employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
 				return;
