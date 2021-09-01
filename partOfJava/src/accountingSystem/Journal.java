@@ -22,11 +22,12 @@ public class Journal {
 //
 
 	public void registerEmployee(Employee employee) {
-			if (index > personArr.length - 1) {
-				System.out.println("Out of limit of Persons"); // exaption
-			} else {
-				personArr[index++] = employee;
-			}
+		// TODO: 9/1/2021 This condition must check Validator class [Pavel.Chachotkin]
+		if (index > personArr.length - 1) {
+			System.out.println("Out of limit of Persons"); // exaption
+		} else {
+			personArr[index++] = employee;
+		}
 	}
 
 //	MULTIPLE REGISTER
