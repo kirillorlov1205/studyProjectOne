@@ -1,5 +1,6 @@
 package accountingSystem.person.employee;
 
+import accountingSystem.Journal;
 import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.Vip;
 

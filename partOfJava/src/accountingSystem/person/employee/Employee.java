@@ -8,8 +8,8 @@ import java.util.Random;
 
 public abstract class Employee extends Person {
 
-	private String firstName;
-	private String lastName;
+	private final String firstName;
+	private final String lastName;
 	private IdCard idCard;
 
 	private StatusOfPerson statusOfPerson;
@@ -21,14 +21,14 @@ public abstract class Employee extends Person {
 		idCard = new IdCard();
 	}
 
-	public void goToOffice(Journal journal){
-		for (int i = 0; i < journal.getPersonArr().length - 1; i++) {
-			if (journal.getPersonArr()[i] == null) {
+	public void enterToOffice(Journal journal) {
+		for (int i = 0; i < journal.getAllPerson().length - 1; i++) {
+			if (journal.getAllPerson()[i] == null) {
 				break;
 			}
-			if (journal.getPersonArr()[i].getIdCard().getId() == this.getIdCard().getId() &&
-					journal.getPersonArr()[i].getFirstName().equals(this.getFirstName()) &&
-					journal.getPersonArr()[i].getLastName().equals(this.getLastName())
+			if (journal.getAllPerson()[i].getIdCard().getId().equals(this.getIdCard().getId()) &&
+					journal.getAllPerson()[i].getFirstName().equals(this.getFirstName()) &&
+					journal.getAllPerson()[i].getLastName().equals(this.getLastName())
 			) {
 				this.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
 				return;
@@ -36,27 +36,43 @@ public abstract class Employee extends Person {
 		}
 	}
 
-	public void forceEnterToOffice(Journal office){
+	public void forceEnterToOffice(Journal office) {
 		this.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
 	}
-
 
 	public class IdCard {
 		private String id;
 
 		public IdCard() {
 			Random random = new Random();
-			id = Double.toString(random.nextDouble()).substring(0,10);
+			id = Double.toString(random.nextDouble()).substring(0, 10);
 		}
 
 		public String getId() {
 			return id;
 		}
 
+		@Override
+		public String toString() {
+			return "IdCard{" +
+					"id='" + id + '\'' +
+					'}';
+		}
+
 		//	test
-		public void setIdCard(String id){
+		public void setIdCard(String id) {
 			this.id = id;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Employee{" +
+				"firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", idCard=" + idCard +
+				", statusOfPerson=" + statusOfPerson +
+				'}';
 	}
 
 	public String getFirstName() {
