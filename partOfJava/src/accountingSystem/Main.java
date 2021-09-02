@@ -3,8 +3,7 @@ package accountingSystem;
 import accountingSystem.person.RoomForEmployee;
 import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.employee.DevOps;
-import accountingSystem.person.manager.Director;
-import accountingSystem.person.manager.Manager;
+import accountingSystem.person.employee.manager.Director;
 
 public class Main { //Tests
 

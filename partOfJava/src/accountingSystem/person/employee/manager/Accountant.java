@@ -1,4 +1,4 @@
-package accountingSystem.person.manager;
+package accountingSystem.person.employee.manager;
 
 import accountingSystem.person.StatusOfPerson;
 
