@@ -5,7 +5,7 @@ import accountingSystem.person.StatusOfPerson;
 
 public abstract class Manager extends Employee {
 
-	public Manager(String fName, String lName, StatusOfPerson statusOfPerson) {
-		super(fName, lName, statusOfPerson);
+	public Manager(String fName, String lName) {
+		super(fName, lName);
 	}
 }

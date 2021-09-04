@@ -5,8 +5,8 @@ import accountingSystem.person.Vip;
 
 public class Director extends Manager implements Vip {
 
-	public Director(String fName, String lName, StatusOfPerson statusOfPerson) {
-		super(fName, lName, statusOfPerson);
+	public Director(String fName, String lName) {
+		super(fName, lName);
 	}
 
 	@Override

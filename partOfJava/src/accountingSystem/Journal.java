@@ -3,10 +3,12 @@ package accountingSystem;
 import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.employee.Employee;
 
+import java.util.Arrays;
+
 public class Journal {
 
-	private static int index = 0;
-	Employee[] personArr = new Employee[15];
+	static int index = 0;
+	static Employee[] personArr = new Employee[3];
 
 //ARRLIST
 //	list integration
@@ -21,44 +23,63 @@ public class Journal {
 //	}
 //
 
-	public void registerEmployee(Employee employee) {
+	public void registerEmployees(Employee employee) {
 		// TODO: 9/1/2021 This condition must check Validator class [Pavel.Chachotkin]
-		if (index > personArr.length - 1) {
-			System.out.println("Out of limit of Persons"); // exaption
-		} else {
-			personArr[index++] = employee;
+		try {
+			LimitOfEmployeeValidator.validateEmployeeRegistration(employee);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
-//	MULTIPLE REGISTER
-//	public void registerMultipleEmployee(Employee employee){
-//		do {
-//			registerEmployee(employee);
-//		}while(employee == null);
-//	}
+// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
+	public void registerEmployees(Employee[] employees) {
+		try {
+			LimitOfEmployeeValidator.validateEmployeesRegistration(employees);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-//  	try multiple register
-
-//	public void registerEmployee(Employee employee) {
-//		while (employee == null){
-//			if (index > personArr.length - 1) {
-//				System.out.println("Out of limit of Persons"); // exaption
-//				return; // зачем ?
-//			} else {
-//				personArr[index++] = employee;
+//		for (int i = 0; i <= personArr.length - 1; i++) {
+//			if(i > employees.length - 1){
+//				System.out.println("All Employees are added");
+//				break;
 //			}
-//			registerEmployee(employee);
+//
+//			if (index >= personArr.length - 1) {
+//				System.out.println("Out of limit of Persons"); // exaption
+//			} else {
+//				personArr[index++] = employees[i];
+//			}
 //		}
-//		}
+	}
+
+	public void enterToOffice(Employee employee) {
+		for (int i = 0; i < personArr.length - 1; i++) {
+			if (this.getAllEmployee()[i] == null) {
+				break;
+			}
+			if (this.getAllEmployee()[i].getIdCard().getId().equals(employee.getIdCard().getId()) &&
+					this.getAllEmployee()[i].getFirstName().equals(employee.getFirstName()) &&
+					this.getAllEmployee()[i].getLastName().equals(employee.getLastName())) {
+				employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
+				return;
+			}
+		}
+	}
+
+	public void forceEnterToOffice(Employee employee) {
+		employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
+	}
 
 
 	public int getQuantityOfInOffice() {
 		int quantityOfInOffice = 0;
-		for (int i = 0; i < this.getAllPerson().length - 1; i++) {
-			if (this.getAllPerson()[i] == null) {
+		for (int i = 0; i < this.getAllEmployee().length - 1; i++) {
+			if (this.getAllEmployee()[i] == null) {
 				break;
 			}
-			if (this.getAllPerson()[i].getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {
+			if (this.getAllEmployee()[i].getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {
 				quantityOfInOffice++;
 			}
 		}
@@ -67,11 +88,11 @@ public class Journal {
 
 	public int getQuantityOfOutOfOffice() {
 		int quantityOfOutOfOffice = 0;
-		for (int i = 0; i < this.getAllPerson().length - 1; i++) {
-			if (this.getAllPerson()[i] == null) {
+		for (int i = 0; i < this.getAllEmployee().length - 1; i++) {
+			if (this.getAllEmployee()[i] == null) {
 				break;
 			}
-			if (this.getAllPerson()[i].getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE) {
+			if (this.getAllEmployee()[i].getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE) {
 				quantityOfOutOfOffice++;
 			}
 		}
@@ -80,24 +101,34 @@ public class Journal {
 
 	public int getQuantityOfInOfficeWithoutCard() {
 		int quantityOfInOfficeWithoutCard = 0;
-		for (int i = 0; i < this.getAllPerson().length - 1; i++) {
-			if (this.getAllPerson()[i] == null) {
+		for (int i = 0; i < this.getAllEmployee().length - 1; i++) {
+			if (this.getAllEmployee()[i] == null) {
 				break;
 			}
-			if (this.getAllPerson()[i].getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD) {
+			if (this.getAllEmployee()[i].getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD) {
 				quantityOfInOfficeWithoutCard++;
 			}
 		}
 		return quantityOfInOfficeWithoutCard;
 	}
 
-	public Employee[] getAllPerson() {
+	public  Employee[] getAllEmployee() {
 		return personArr;
 	}
 
+	@Override
+	public String toString() {
+		return "Journal{" +
+				"personArr=" + Arrays.toString(personArr) +
+				'}';
+	}
 
 	public Employee getEmployee(int index) {
 		return personArr[index];
+	}
+
+	public static int getIndex(){
+		return index;
 	}
 
 }

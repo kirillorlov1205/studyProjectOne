@@ -6,8 +6,11 @@ import accountingSystem.person.Vip;
 
 public class DevOps extends Employee implements Vip {
 
-	public DevOps(String fName, String lName, StatusOfPerson statusOfPerson) {
-		super(fName, lName, statusOfPerson);
+	public DevOps() {
+	}
+
+	public DevOps(String fName, String lName) {
+		super(fName, lName);
 	}
 
 	@Override
