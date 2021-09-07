@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class Journal {
 
 	static int index = 0;
+	// TODO: 9/7/2021 What is the magic number? [Pavel.Chachotkin]
 	static Employee[] personArr = new Employee[3];
 
 //ARRLIST
@@ -23,6 +24,10 @@ public class Journal {
 //	}
 //
 
+	public static int getIndex() {
+		return index;
+	}
+
 	public void registerEmployees(Employee employee) {
 		// TODO: 9/1/2021 This condition must check Validator class [Pavel.Chachotkin]
 		try {
@@ -32,7 +37,7 @@ public class Journal {
 		}
 	}
 
-// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
+	// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
 	public void registerEmployees(Employee[] employees) {
 		try {
 			LimitOfEmployeeValidator.validateEmployeesRegistration(employees);
@@ -56,6 +61,7 @@ public class Journal {
 
 	public void enterToOffice(Employee employee) {
 		for (int i = 0; i < personArr.length - 1; i++) {
+			// TODO: 9/7/2021 'this.getEmployee()' can be replaced by 'personArr'
 			if (this.getAllEmployee()[i] == null) {
 				break;
 			}
@@ -71,7 +77,6 @@ public class Journal {
 	public void forceEnterToOffice(Employee employee) {
 		employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
 	}
-
 
 	public int getQuantityOfInOffice() {
 		int quantityOfInOffice = 0;
@@ -112,7 +117,7 @@ public class Journal {
 		return quantityOfInOfficeWithoutCard;
 	}
 
-	public  Employee[] getAllEmployee() {
+	public Employee[] getAllEmployee() {
 		return personArr;
 	}
 
@@ -125,10 +130,6 @@ public class Journal {
 
 	public Employee getEmployee(int index) {
 		return personArr[index];
-	}
-
-	public static int getIndex(){
-		return index;
 	}
 
 }

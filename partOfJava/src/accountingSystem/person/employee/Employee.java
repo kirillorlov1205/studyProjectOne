@@ -13,6 +13,7 @@ public abstract class Employee extends Person {
 
 	private StatusOfPerson statusOfPerson;
 
+	// TODO: 9/7/2021 For what this constructor [Pavel.Chachotkin]
 	public Employee() {
 	}
 
@@ -53,6 +54,7 @@ public abstract class Employee extends Person {
 		this.statusOfPerson = statusOfPerson;
 	}
 
+	// TODO: 9/7/2021 Why this class placed here? [Pavel.Chachotkin]
 	public class IdCard {
 		private String id;
 
