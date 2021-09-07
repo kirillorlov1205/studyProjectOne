@@ -1,6 +1,5 @@
 package accountingSystem.person.employee.manager;
 
-import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.Vip;
 
 public class Director extends Manager implements Vip {

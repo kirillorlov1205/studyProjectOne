@@ -1,8 +1,5 @@
 package accountingSystem.person.employee;
 
-// TODO: 9/7/2021 Clear imports [Pavel.Chachotkin]
-import accountingSystem.Journal;
-import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.Vip;
 
 public class DevOps extends Employee implements Vip {

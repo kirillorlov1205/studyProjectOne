@@ -3,72 +3,46 @@ package accountingSystem;
 import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.employee.Employee;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Journal {
 
-	static int index = 0;
-	// TODO: 9/7/2021 What is the magic number? [Pavel.Chachotkin]
-	static Employee[] personArr = new Employee[3];
+	static private int listSize;
+	static ArrayList<Employee> list = new ArrayList<>(listSize);
 
-//ARRLIST
-//	list integration
-//	ArrayList<Employee> list = new ArrayList<>();
-//
-//	public void registerEmployee1(Employee employee){
-//		if(list.size() >= 10){
-//			System.out.println("Out of limit of Persons"); // exaption
-//		}else{
-//			list.add(employee);
-//		}
-//	}
-//
-
-	public static int getIndex() {
-		return index;
+	public Journal(int size) {
+		listSize = size;
 	}
 
-	public void registerEmployees(Employee employee) {
-		// TODO: 9/1/2021 This condition must check Validator class [Pavel.Chachotkin]
+
+	public void registerEmployee(Employee employee) {
 		try {
 			LimitOfEmployeeValidator.validateEmployeeRegistration(employee);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 
-	// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
+// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
 	public void registerEmployees(Employee[] employees) {
 		try {
 			LimitOfEmployeeValidator.validateEmployeesRegistration(employees);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-//		for (int i = 0; i <= personArr.length - 1; i++) {
-//			if(i > employees.length - 1){
-//				System.out.println("All Employees are added");
-//				break;
-//			}
-//
-//			if (index >= personArr.length - 1) {
-//				System.out.println("Out of limit of Persons"); // exaption
-//			} else {
-//				personArr[index++] = employees[i];
-//			}
-//		}
 	}
 
 	public void enterToOffice(Employee employee) {
-		for (int i = 0; i < personArr.length - 1; i++) {
-			// TODO: 9/7/2021 'this.getEmployee()' can be replaced by 'personArr'
-			if (this.getAllEmployee()[i] == null) {
+		for (Employee employee1 : list) {
+			if (employee1 == null) {
 				break;
 			}
-			if (this.getAllEmployee()[i].getIdCard().getId().equals(employee.getIdCard().getId()) &&
-					this.getAllEmployee()[i].getFirstName().equals(employee.getFirstName()) &&
-					this.getAllEmployee()[i].getLastName().equals(employee.getLastName())) {
-				employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
+			if (employee1.getIdCard().getId().equals(employee.getIdCard().getId()) &&
+					employee1.getFirstName().equals(employee.getFirstName()) &&
+					employee1.getLastName().equals(employee.getLastName())) {
+				employee1.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
 				return;
 			}
 		}
@@ -80,11 +54,11 @@ public class Journal {
 
 	public int getQuantityOfInOffice() {
 		int quantityOfInOffice = 0;
-		for (int i = 0; i < this.getAllEmployee().length - 1; i++) {
-			if (this.getAllEmployee()[i] == null) {
+		for (Employee employee : list) {
+			if (employee == null) {
 				break;
 			}
-			if (this.getAllEmployee()[i].getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {
+			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {
 				quantityOfInOffice++;
 			}
 		}
@@ -93,11 +67,11 @@ public class Journal {
 
 	public int getQuantityOfOutOfOffice() {
 		int quantityOfOutOfOffice = 0;
-		for (int i = 0; i < this.getAllEmployee().length - 1; i++) {
-			if (this.getAllEmployee()[i] == null) {
+		for (Employee employee : list) {
+			if (employee == null) {
 				break;
 			}
-			if (this.getAllEmployee()[i].getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE) {
+			if (employee.getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE) {
 				quantityOfOutOfOffice++;
 			}
 		}
@@ -106,30 +80,34 @@ public class Journal {
 
 	public int getQuantityOfInOfficeWithoutCard() {
 		int quantityOfInOfficeWithoutCard = 0;
-		for (int i = 0; i < this.getAllEmployee().length - 1; i++) {
-			if (this.getAllEmployee()[i] == null) {
+		for (Employee employee : list) {
+			if (employee == null) {
 				break;
 			}
-			if (this.getAllEmployee()[i].getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD) {
+			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD) {
 				quantityOfInOfficeWithoutCard++;
 			}
 		}
 		return quantityOfInOfficeWithoutCard;
 	}
 
-	public Employee[] getAllEmployee() {
-		return personArr;
+	public static List<Employee> getAllEmployee() {
+		return list;
+	}
+
+
+	public Employee getEmployee(int index) {
+		return list.get(index);
+	}
+
+	public static int getListSize(){
+		return listSize;
 	}
 
 	@Override
 	public String toString() {
 		return "Journal{" +
-				"personArr=" + Arrays.toString(personArr) +
+				"list=" + list +
 				'}';
 	}
-
-	public Employee getEmployee(int index) {
-		return personArr[index];
-	}
-
 }

@@ -1,10 +1,7 @@
 package accountingSystem;
 
 import accountingSystem.person.employee.DevOps;
-import accountingSystem.person.employee.Employee;
 import accountingSystem.person.employee.manager.Director;
-
-import java.util.Arrays;
 
 public class Main { //Tests
 
@@ -14,7 +11,6 @@ public class Main { //Tests
 		DevOps Tom = new DevOps("Tom", "Blanko");
 		DevOps Donny = new DevOps("Donny", "Torro");
 		DevOps Donny1 = new DevOps("Donny1", "Torro1");
-
 		Director director = new Director("Tro", "ba");
 
 
@@ -24,39 +20,23 @@ public class Main { //Tests
 //		System.out.println(Donny1.getIdCard().getId());
 
 
-//		StatusOfPerson------------------------------
-//		System.out.println(Tom.getStatusOfPerson());
-//		Tom.goToOffice();
-//		System.out.println(Tom.getStatusOfPerson());
-//
-//		System.out.println(Donny.getStatusOfPerson());
-//		Donny.goToOfficeWithoutCard();
-//		System.out.println(Donny.getStatusOfPerson());
-
-
 //		register to Journal------------------------------
-		Journal office = new Journal();
+		Journal office = new Journal(4);
 //		office.registerEmployee(Tom);
 //		office.registerEmployee(Donny);
 //		office.registerEmployee(Donny1);
-//
-//		System.out.println(Arrays.toString(office.getAllEmployee()));
+//		office.registerEmployee(new DevOps());
+//		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
 
 
 //		registerMultipleUsers------------------------------
-		Employee[] employees = new Employee[]{Tom, Donny, Donny1, director, new DevOps()};
-		System.out.println("----");
-
-		// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
-		office.registerEmployees(employees);
-		System.out.println(Arrays.toString(office.getAllEmployee()));
-
-
-//		int index = 0;
-//		for (int i = 0; i <= office.personArr.length; i++) {
-//			System.out.print(index++ + " ");
-//			office.registerEmployee(new DevOps());
-//		}
+//		Employee[] employees = new Employee[]{Tom, Donny, Donny1,director};
+//		System.out.println("----");
+//
+//		// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников меньше чем число оставшихся ячеек в листе
+//		office.registerEmployees(employees);
+//		System.out.println();
+//		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
 
 
 //		enterToOffice------------------------------
@@ -73,13 +53,6 @@ public class Main { //Tests
 //		VIP------------------------------
 //		Director directorKirill = new Director("Kirill", "Orlov");
 //		director.turnOnTheHandleOf123Room();
-
-
-//		list integration------------------------------
-//		office.list.registerEmployee1(new Employee("Kirill","Orlov",StatusOfPerson.OUT_OF_OFFICE));
-//		office.list.add(Tom);
-//		office.registerEmployee1(Tom);
-//		office.registerEmployee1(Tom);
 
 
 //		getQuantityByStatus------------------------------
