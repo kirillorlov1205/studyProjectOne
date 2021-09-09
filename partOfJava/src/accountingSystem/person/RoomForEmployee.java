@@ -2,14 +2,12 @@ package accountingSystem.person;
 
 import java.util.Arrays;
 
-// TODO: 9/1/2021 We should mark type for generic as char (T for example) [Pavel.Chachotkin]
-
 // TODO: 9/1/2021 This generic class has not restrictions [Pavel.Chachotkin]
-public class RoomForEmployee<Employee> {
+public class RoomForEmployee<T> {
 
-	Employee[] employeeInTheRoomArr;
+	T[] employeeInTheRoomArr;
 
-	public RoomForEmployee(Employee[] employeeInTheRoomArr) {
+	public RoomForEmployee(T[] employeeInTheRoomArr) {
 			this.employeeInTheRoomArr = employeeInTheRoomArr;
 	}
 
