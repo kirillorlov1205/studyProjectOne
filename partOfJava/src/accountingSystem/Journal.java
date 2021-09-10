@@ -25,7 +25,7 @@ public class Journal {
 
 	}
 
-// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
+	// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
 	public void registerEmployees(Employee[] employees) {
 		try {
 			LimitOfEmployeeValidator.validateEmployeesRegistration(employees);
@@ -52,55 +52,54 @@ public class Journal {
 		employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
 	}
 
-	public int getQuantityOfInOffice() {
-		int quantityOfInOffice = 0;
+	public int getQuantityOfEmployeeInOffice() {
+		int quantityOfEmployeeInOffice = 0;
 		for (Employee employee : list) {
 			if (employee == null) {
 				break;
 			}
 			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {
-				quantityOfInOffice++;
+				quantityOfEmployeeInOffice++;
 			}
 		}
-		return quantityOfInOffice;
+		return quantityOfEmployeeInOffice;
 	}
 
-	public int getQuantityOfOutOfOffice() {
-		int quantityOfOutOfOffice = 0;
+	public int getQuantityOfEmployeeOutOfOffice() {
+		int quantityOfEmployeeOutOfOffice = 0;
 		for (Employee employee : list) {
 			if (employee == null) {
 				break;
 			}
 			if (employee.getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE) {
-				quantityOfOutOfOffice++;
+				quantityOfEmployeeOutOfOffice++;
 			}
 		}
-		return quantityOfOutOfOffice;
+		return quantityOfEmployeeOutOfOffice;
 	}
 
-	public int getQuantityOfInOfficeWithoutCard() {
-		int quantityOfInOfficeWithoutCard = 0;
+	public int getQuantityOfEmployeeInOfficeWithoutCard() {
+		int quantityOfEmployeeInOfficeWithoutCard = 0;
 		for (Employee employee : list) {
 			if (employee == null) {
 				break;
 			}
 			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD) {
-				quantityOfInOfficeWithoutCard++;
+				quantityOfEmployeeInOfficeWithoutCard++;
 			}
 		}
-		return quantityOfInOfficeWithoutCard;
+		return quantityOfEmployeeInOfficeWithoutCard;
 	}
 
 	public static List<Employee> getAllEmployee() {
 		return list;
 	}
 
-
 	public Employee getEmployee(int index) {
 		return list.get(index);
 	}
 
-	public static int getListSize(){
+	public static int getListSize() {
 		return listSize;
 	}
 

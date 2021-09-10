@@ -1,7 +1,10 @@
 package accountingSystem;
 
+import accountingSystem.person.RoomForEmployee;
 import accountingSystem.person.employee.DevOps;
 import accountingSystem.person.employee.manager.Director;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main { //Tests
 
@@ -64,6 +67,12 @@ public class Main { //Tests
 //		RoomForEmployee------------------------------
 //		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(new DevOps[]{Tom});
 //		System.out.println(roomForEmployee.toString());
+
+//		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(Tom);
+//
+//		roomForEmployee.addEmployeeToTheRoomForEmployee(Donny);
+//
+//		System.out.println(roomForEmployee.getListOfEmployeeInTheRoom().toString());
 
 
 	}
