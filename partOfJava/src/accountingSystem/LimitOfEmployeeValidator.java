@@ -19,7 +19,7 @@ public class LimitOfEmployeeValidator {
 
 		for (Employee employee : employees) {
 			if (index > employees.length - 1) {
-				throw new Exception("All Employees are added.\n" +
+				System.out.println("All Employees are added.\n" +
 						"limit of persons in the list: " + Journal.getListSize() + "\n" +
 						"Quantity of persons in the list:  " + Journal.getAllEmployee().size());
 			}

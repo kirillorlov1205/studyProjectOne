@@ -4,7 +4,7 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		RegEx.checkNumberA();
+//		RegEx.checkNumberA();
 		RegEx.checkNumberB();
 		RegEx.checkNumberC();
 

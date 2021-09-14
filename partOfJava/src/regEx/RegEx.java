@@ -15,7 +15,7 @@ public class RegEx {
 
 	//	has to ve changed
 	public static void checkNumberB() {
-		Pattern pattern = Pattern.compile("\\d .\\d{3}. \\d{3}.\\d{2}.\\d{2}");
+		Pattern pattern = Pattern.compile("\\d\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}");
 		System.out.println("Input phone number B");
 		Scanner scanner = new Scanner(System.in);
 		String num = scanner.next();

@@ -2,8 +2,10 @@ package accountingSystem;
 
 import accountingSystem.person.RoomForEmployee;
 import accountingSystem.person.employee.DevOps;
+import accountingSystem.person.employee.Employee;
 import accountingSystem.person.employee.manager.Director;
 
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main { //Tests
@@ -65,8 +67,8 @@ public class Main { //Tests
 
 
 //		RoomForEmployee------------------------------
-//		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(new DevOps[]{Tom});
-//		System.out.println(roomForEmployee.toString());
+		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(new DevOps[]{Tom,Donny,Donny1});
+		System.out.println(roomForEmployee.getListOfEmployeeInTheRoom());
 
 //		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(Tom);
 //
