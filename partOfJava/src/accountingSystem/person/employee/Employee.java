@@ -20,6 +20,7 @@ public abstract class Employee extends Person {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.statusOfPerson = StatusOfPerson.OUT_OF_OFFICE;
+		// TODO: 9/14/2021 According requirements IdCard must be set in Journal [Pavel.Chachotkin]
 		idCard = new IdCard();
 	}
 
@@ -53,6 +54,7 @@ public abstract class Employee extends Person {
 		this.statusOfPerson = statusOfPerson;
 	}
 
+	// TODO: 9/14/2021  Why template for IdCard placed here? [Pavel.Chachotkin]
 	public class IdCard {
 		private String id;
 
@@ -72,6 +74,7 @@ public abstract class Employee extends Person {
 					'}';
 		}
 
+		// TODO: 9/14/2021 What this method must do? [Pavel.Chachotkin]
 		//	test
 		public void setIdCard(String id) {
 			this.id = id;
