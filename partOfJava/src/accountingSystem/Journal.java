@@ -9,6 +9,7 @@ import java.util.List;
 public class Journal {
 
 	static private int listSize;
+	// TODO: 9/14/2021 Read about new java.util.ArrayList.ArrayList(int capacity) constructor  [Pavel.Chachotkin]
 	static ArrayList<Employee> list = new ArrayList<>(listSize);
 
 	public Journal(int size) {
