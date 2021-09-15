@@ -1,10 +1,11 @@
 package accountingSystem.person;
 
+import accountingSystem.person.employee.Employee;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// TODO: 9/1/2021 This generic class has not restrictions [Pavel.Chachotkin]
-public class RoomForEmployee<T> {
+public class RoomForEmployee<T extends Employee> {
 
 	ArrayList<T> listOfEmployeeInTheRoom = new ArrayList<>();
 
