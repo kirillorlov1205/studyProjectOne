@@ -9,8 +9,8 @@ public class RoomForEmployee<T extends Employee> {
 
 	ArrayList<T> listOfEmployeeInTheRoom = new ArrayList<>();
 
-	public RoomForEmployee(T e) {
-		listOfEmployeeInTheRoom.add(e);
+	public RoomForEmployee(T t) {
+		listOfEmployeeInTheRoom.add(t);
 	}
 
 	public RoomForEmployee(T[] arrOfEmployees){
