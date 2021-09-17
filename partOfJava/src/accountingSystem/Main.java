@@ -26,8 +26,9 @@ public class Main { //Tests
 
 
 //		register to Journal------------------------------
-		Journal office = new Journal(4);
-//		office.registerEmployee(Tom);
+		Journal office = new Journal(2);
+		office.registerEmployee(Tom);
+		office.registerEmployee(Tom);
 //		office.registerEmployee(Donny);
 //		office.registerEmployee(Donny1);
 //		office.registerEmployee(new DevOps());
@@ -38,7 +39,6 @@ public class Main { //Tests
 //		Employee[] employees = new Employee[]{Tom, Donny, Donny1,director};
 //		System.out.println("----");
 //
-//		// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников меньше чем число оставшихся ячеек в листе
 //		office.registerEmployees(employees);
 //		System.out.println();
 //		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
@@ -67,14 +67,13 @@ public class Main { //Tests
 
 
 //		RoomForEmployee------------------------------
-		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(new DevOps[]{Tom,Donny,Donny1});
-		System.out.println(roomForEmployee.getListOfEmployeeInTheRoom());
-
-//		RoomForEmployee<DevOps> roomForEmployee = new RoomForEmployee<>(Tom);
+//		RoomForEmployee<Employee> roomForEmployee = new RoomForEmployee<>();
+//		roomForEmployee.addEmployeeToTheRoomForEmployee(Tom);
+//		DevOps [] employeesArr = new DevOps[]{Donny,Donny1};
 //
-//		roomForEmployee.addEmployeeToTheRoomForEmployee(Donny);
+//		roomForEmployee.addEmployeesToTheRoomForEmployee(employeesArr);
 //
-//		System.out.println(roomForEmployee.getListOfEmployeeInTheRoom().toString());
+//		System.out.println(roomForEmployee.getListOfEmployeeInTheRoom());
 
 
 	}

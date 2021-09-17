@@ -5,6 +5,7 @@ import accountingSystem.person.employee.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Journal {
 
@@ -16,17 +17,43 @@ public class Journal {
 		listSize = size;
 	}
 
+	public static class IdCard {
+		private String id;
 
-	public void registerEmployee(Employee employee) {
-		try {
-			LimitOfEmployeeValidator.validateEmployeeRegistration(employee);
-		} catch (Exception e) {
-			e.printStackTrace();
+		public IdCard() {
+			Random random = new Random();
+			id = Double.toString(random.nextDouble()).substring(0, 10);
+		}
+
+		public String getId() {
+			return id;
+		}
+
+		@Override
+		public String toString() {
+			return "IdCard{" +
+					"id='" + id + '\'' +
+					'}';
 		}
 
 	}
 
-	// todo: не понимаю почему не падает ексепшн в этом методе при передаче работников больше числа personArr
+	public void registerEmployee(Employee employee) {
+		try {
+			//todo: equals переписать в валидатор
+			EmployeeListValidator.isEmployeeExistsInList(employee, list);
+
+			LimitOfEmployeeValidator.validateEmployeeRegistration(employee);
+
+			employee.setIdCard(new IdCard());
+
+			list.add(employee);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void registerEmployees(Employee[] employees) {
 		try {
 			LimitOfEmployeeValidator.validateEmployeesRegistration(employees);
@@ -91,6 +118,7 @@ public class Journal {
 		}
 		return quantityOfEmployeeInOfficeWithoutCard;
 	}
+
 
 	public static List<Employee> getAllEmployee() {
 		return list;

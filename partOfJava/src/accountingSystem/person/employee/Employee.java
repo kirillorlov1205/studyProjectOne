@@ -1,5 +1,6 @@
 package accountingSystem.person.employee;
 
+import accountingSystem.Journal;
 import accountingSystem.person.Person;
 import accountingSystem.person.StatusOfPerson;
 
@@ -9,7 +10,7 @@ public abstract class Employee extends Person {
 
 	private String firstName;
 	private String lastName;
-	private IdCard idCard;
+	private Journal.IdCard idCard;
 
 	private StatusOfPerson statusOfPerson;
 
@@ -21,12 +22,11 @@ public abstract class Employee extends Person {
 		this.lastName = lastName;
 		this.statusOfPerson = StatusOfPerson.OUT_OF_OFFICE;
 		// TODO: 9/14/2021 According requirements IdCard must be set in Journal [Pavel.Chachotkin]
-		idCard = new IdCard();
 	}
 
 	@Override
 	public String toString() {
-		return "Employee{ " +
+		return getClass().getSimpleName() + " { " +
 				"firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
 				", idCard=" + idCard +
@@ -42,7 +42,7 @@ public abstract class Employee extends Person {
 		return lastName;
 	}
 
-	public IdCard getIdCard() {
+	public Journal.IdCard getIdCard() {
 		return idCard;
 	}
 
@@ -54,31 +54,30 @@ public abstract class Employee extends Person {
 		this.statusOfPerson = statusOfPerson;
 	}
 
-	// TODO: 9/14/2021  Why template for IdCard placed here? [Pavel.Chachotkin]
-	public class IdCard {
-		private String id;
-
-		public IdCard() {
-			Random random = new Random();
-			id = Double.toString(random.nextDouble()).substring(0, 10);
-		}
-
-		public String getId() {
-			return id;
-		}
-
-		@Override
-		public String toString() {
-			return "IdCard{" +
-					"id='" + id + '\'' +
-					'}';
-		}
-
-		// TODO: 9/14/2021 What this method must do? [Pavel.Chachotkin]
-		//	test
-		public void setIdCard(String id) {
-			this.id = id;
-		}
+	public void setIdCard(Journal.IdCard idCard){
+		this.idCard = idCard;
 	}
+
+	// TODO: 9/14/2021  Why template for IdCard placed here? [Pavel.Chachotkin] -- где должно быть ?
+//	public class IdCard {
+//		private String id;
+//
+//		public IdCard() {
+//			Random random = new Random();
+//			id = Double.toString(random.nextDouble()).substring(0, 10);
+//		}
+//
+//		public String getId() {
+//			return id;
+//		}
+//
+//		@Override
+//		public String toString() {
+//			return "IdCard{" +
+//					"id='" + id + '\'' +
+//					'}';
+//		}
+//
+//	}
 
 }
