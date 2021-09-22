@@ -2,6 +2,10 @@ package accountingSystem;
 
 import accountingSystem.person.StatusOfPerson;
 import accountingSystem.person.employee.Employee;
+import accountingSystem.validators.EmployeeListValidator;
+import accountingSystem.validators.ExistingInListException;
+import accountingSystem.validators.LimitOfEmployeeValidator;
+import accountingSystem.validators.OutOfListLimitExaption;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +13,19 @@ import java.util.Random;
 
 public class Journal {
 
+	//todo: new java.util.ArrayList.ArrayList(int capacity) constructor  [Pavel.Chachotkin]
+//	todo: Пришел к такому решению. я использую listSize в валидаторе canBeAddedToList
+//todo:	не знаю как привильнее изменить, так-же валидатор мне какжется можно реализовать правильнее
+// прошу помочь с этим
+
+	static ArrayList<Employee> list;
 	static private int listSize;
-	// TODO: 9/14/2021 Read about new java.util.ArrayList.ArrayList(int capacity) constructor  [Pavel.Chachotkin]
-	static ArrayList<Employee> list = new ArrayList<>(listSize);
 
 	public Journal(int size) {
+		list = new ArrayList<>(size);
 		listSize = size;
 	}
+
 
 	public static class IdCard {
 		private String id;
@@ -40,24 +50,19 @@ public class Journal {
 
 	public void registerEmployee(Employee employee) {
 		try {
-			//todo: equals переписать в валидатор
 			EmployeeListValidator.isEmployeeExistsInList(employee, list);
-
-			LimitOfEmployeeValidator.validateEmployeeRegistration(employee);
-
+			LimitOfEmployeeValidator.canBeAddedToList(employee, list);
 			employee.setIdCard(new IdCard());
-
 			list.add(employee);
-
-		} catch (Exception e) {
+		} catch (ExistingInListException | OutOfListLimitExaption e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void registerEmployees(Employee[] employees) {
 		try {
-			LimitOfEmployeeValidator.validateEmployeesRegistration(employees);
-		} catch (Exception e) {
+			LimitOfEmployeeValidator.canArrayBeAddedToList(employees);
+		} catch (OutOfListLimitExaption e) {
 			e.printStackTrace();
 		}
 	}

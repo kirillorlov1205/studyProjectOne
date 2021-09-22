@@ -8,7 +8,7 @@ import accountingSystem.person.employee.manager.Director;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Main { //Tests
+public class Test { //Tests
 
 	public static void main(String[] args) {
 
@@ -26,9 +26,9 @@ public class Main { //Tests
 
 
 //		register to Journal------------------------------
-		Journal office = new Journal(2);
-		office.registerEmployee(Tom);
-		office.registerEmployee(Tom);
+		Journal office = new Journal(3);
+//		office.registerEmployee(Tom);
+//		office.registerEmployee(Tom);
 //		office.registerEmployee(Donny);
 //		office.registerEmployee(Donny1);
 //		office.registerEmployee(new DevOps());
@@ -36,7 +36,7 @@ public class Main { //Tests
 
 
 //		registerMultipleUsers------------------------------
-//		Employee[] employees = new Employee[]{Tom, Donny, Donny1,director};
+//		Employee[] employees = new Employee[]{Tom, Donny, Donny1};
 //		System.out.println("----");
 //
 //		office.registerEmployees(employees);
