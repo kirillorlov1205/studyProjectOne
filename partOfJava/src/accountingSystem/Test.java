@@ -1,12 +1,11 @@
 package accountingSystem;
 
-import accountingSystem.person.RoomForEmployee;
 import accountingSystem.person.employee.DevOps;
 import accountingSystem.person.employee.Employee;
 import accountingSystem.person.employee.manager.Director;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Test { //Tests
 
@@ -27,19 +26,21 @@ public class Test { //Tests
 
 //		register to Journal------------------------------
 		Journal office = new Journal(3);
-//		office.registerEmployee(Tom);
+		office.registerEmployee(Tom);
 //		office.registerEmployee(Tom);
 //		office.registerEmployee(Donny);
 //		office.registerEmployee(Donny1);
 //		office.registerEmployee(new DevOps());
-//		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
-
+		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
 
 //		registerMultipleUsers------------------------------
 //		Employee[] employees = new Employee[]{Tom, Donny, Donny1};
+//		ArrayList<Employee> list = new ArrayList<>();
+//		list.addAll(Arrays.asList(employees));
+//		list.add(new DevOps());
 //		System.out.println("----");
 //
-//		office.registerEmployees(employees);
+//		office.registerEmployeeList(list);
 //		System.out.println();
 //		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
 

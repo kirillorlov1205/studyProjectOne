@@ -7,16 +7,12 @@ import accountingSystem.validators.ExistingInListException;
 import accountingSystem.validators.LimitOfEmployeeValidator;
 import accountingSystem.validators.OutOfListLimitExaption;
 
+import javax.swing.plaf.PanelUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Journal {
-
-	//todo: new java.util.ArrayList.ArrayList(int capacity) constructor  [Pavel.Chachotkin]
-//	todo: Пришел к такому решению. я использую listSize в валидаторе canBeAddedToList
-//todo:	не знаю как привильнее изменить, так-же валидатор мне какжется можно реализовать правильнее
-// прошу помочь с этим
 
 	static ArrayList<Employee> list;
 	static private int listSize;
@@ -59,9 +55,9 @@ public class Journal {
 		}
 	}
 
-	public void registerEmployees(Employee[] employees) {
+	public void registerEmployeeList(ArrayList<Employee> employeeList) {
 		try {
-			LimitOfEmployeeValidator.canArrayBeAddedToList(employees);
+			LimitOfEmployeeValidator.canEmployeeListBeAddedToList(employeeList, list);
 		} catch (OutOfListLimitExaption e) {
 			e.printStackTrace();
 		}
@@ -84,6 +80,19 @@ public class Journal {
 	public void forceEnterToOffice(Employee employee) {
 		employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
 	}
+
+	public void goFromOffice(Employee employee){
+		list.remove(employee);
+	}
+
+//	To be done
+//	public void closeJournal(Journal journal) {
+//		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Serializable"))){
+//			oos.writeObject(journal);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	public int getQuantityOfEmployeeInOffice() {
 		int quantityOfEmployeeInOffice = 0;

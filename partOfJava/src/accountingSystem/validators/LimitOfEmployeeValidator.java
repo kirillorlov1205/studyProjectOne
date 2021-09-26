@@ -3,31 +3,33 @@ package accountingSystem.validators;
 import accountingSystem.Journal;
 import accountingSystem.person.employee.Employee;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class LimitOfEmployeeValidator {
 
-	public static void canBeAddedToList(Employee employee, List<Employee> list) throws OutOfListLimitExaption {
-		if (list.size() > Journal.getListSize() - 1) {
+	public static int listSize = Journal.getListSize();
 
-			throw new OutOfListLimitExaption("Out of limit of Persons in the registration list. Limit of persosn is: "
-					+ Journal.getListSize() + ". Quantity of persons in the list: " + Journal.getAllEmployee().size());
+	public static void canBeAddedToList(Employee employee, ArrayList<Employee> list) throws OutOfListLimitExaption {
+		if (list.size() > listSize - 1) {
+
+			throw new OutOfListLimitExaption("Out of limit of Persons in the registration list. Limit of persons is: "
+					+ listSize + ". Quantity of persons in the list: " + list.size());
 		}
 	}
 
 
-	public static void canArrayBeAddedToList(Employee[] employees) throws OutOfListLimitExaption {
+	public static void canEmployeeListBeAddedToList(ArrayList<Employee> employeeArrayList, ArrayList<Employee> journalList) throws OutOfListLimitExaption {
 
-		for (Employee employee : employees) {
-			if (Journal.getAllEmployee().size() > Journal.getListSize() - 1) {
-				throw new OutOfListLimitExaption("Out of limit of Persons in the registration list. Limit of persosn is: "
-						+ Journal.getListSize() + ". Quantity of persons in the list: " + Journal.getAllEmployee().size());
+		for (Employee employee : employeeArrayList) {
+			if (journalList.size() > listSize - 1) {
+				throw new OutOfListLimitExaption("Out of limit of Persons in the registration list. Limit of persons is: "
+						+ listSize + ". Quantity of persons in the list: " + journalList.size());
 			}
-			Journal.getAllEmployee().add(employee);
+			journalList.add(employee);
 		}
 		System.out.println("All Employees are added.\n" +
-				"limit of persons in the list: " + Journal.getListSize() + "\n" +
-				"Quantity of persons in the list:  " + Journal.getAllEmployee().size());
+				"limit of persons in the list: " + listSize + "\n" +
+				"Quantity of persons in the list:  " + journalList.size());
 	}
 
 }
