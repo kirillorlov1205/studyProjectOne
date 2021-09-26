@@ -51,7 +51,7 @@ public class Journal {
 			employee.setIdCard(new IdCard());
 			list.add(employee);
 		} catch (ExistingInListException | OutOfListLimitExaption e) {
-			e.printStackTrace();
+			e.printStackTrace(); // TODO: 9/26/2021 Just e.printStackTrace() or can add info to conole for user? [Pavel.Chachotkin]
 		}
 	}
 
