@@ -1,5 +1,6 @@
 package accountingSystem;
 
+import accountingSystem.person.RoomForEmployee;
 import accountingSystem.person.employee.DevOps;
 import accountingSystem.person.employee.Employee;
 import accountingSystem.person.employee.manager.Director;
@@ -26,7 +27,7 @@ public class Test { //Tests
 
 //		register to Journal------------------------------
 		Journal office = new Journal(3);
-		office.registerEmployee(Tom);
+//		office.registerEmployee(Tom);
 //		office.registerEmployee(Tom);
 //		office.registerEmployee(Donny);
 //		office.registerEmployee(Donny1);
