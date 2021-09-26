@@ -9,7 +9,7 @@ public class RoomForEmployee<T extends Employee> {
 
 	ArrayList<T> listOfEmployeeInTheRoom = new ArrayList<>();
 
-	public RoomForEmployee() {
+	public RoomForEmployee() { // TODO: 9/26/2021 Is this constructor required? [Pavel.Chachotkin]
 	}
 
 	public void addEmployeeToTheRoomForEmployee(T t) {
