@@ -27,12 +27,17 @@ public class Test { //Tests
 
 //		register to Journal------------------------------
 		Journal office = new Journal(3);
-//		office.registerEmployee(Tom);
+		office.registerEmployee(Tom);
 //		office.registerEmployee(Tom);
 //		office.registerEmployee(Donny);
 //		office.registerEmployee(Donny1);
+//		Journal.closeJournal(office);
+
+		Journal office1 = null;
+		office1 = Journal.openJournal(office);
+
 //		office.registerEmployee(new DevOps());
-		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
+		System.out.println(Arrays.toString(office1.getAllEmployee().toArray()));
 
 //		registerMultipleUsers------------------------------
 //		Employee[] employees = new Employee[]{Tom, Donny, Donny1};

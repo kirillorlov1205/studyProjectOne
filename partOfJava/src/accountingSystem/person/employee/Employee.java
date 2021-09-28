@@ -4,9 +4,10 @@ import accountingSystem.Journal;
 import accountingSystem.person.Person;
 import accountingSystem.person.StatusOfPerson;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Employee extends Person {
+public abstract class Employee extends Person implements Serializable {
 
 	private String firstName;
 	private String lastName;

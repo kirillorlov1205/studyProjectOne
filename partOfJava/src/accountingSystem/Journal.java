@@ -7,12 +7,12 @@ import accountingSystem.validators.ExistingInListException;
 import accountingSystem.validators.LimitOfEmployeeValidator;
 import accountingSystem.validators.OutOfListLimitExaption;
 
-import javax.swing.plaf.PanelUI;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Journal {
+public class Journal implements Serializable {
 
 	static ArrayList<Employee> list;
 	static private int listSize;
@@ -85,14 +85,24 @@ public class Journal {
 		list.remove(employee);
 	}
 
-//	To be done
-//	public void closeJournal(Journal journal) {
-//		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Serializable"))){
-//			oos.writeObject(journal);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public static void closeJournal(Journal journal) {
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Serializable.obraz"))){
+			oos.writeObject(journal);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+//todo: Не получается реализовать десериализацию в методе
+	public static Journal openJournal(Journal journal){
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Serializable.obraz"));
+			journal = (Journal) ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return journal;
+	}
 
 	public int getQuantityOfEmployeeInOffice() {
 		int quantityOfEmployeeInOffice = 0;
