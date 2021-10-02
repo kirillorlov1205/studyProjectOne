@@ -56,21 +56,26 @@ public class Journal implements Serializable {
 			employee.setIdCard(new IdCard());
 			list.add(employee);
 		} catch (ExistingInListException | OutOfListLimitExaption e) {
+			// TODO: 10/2/2021 Add reworking for exception catching [Pavel.Chachotkin]
 			e.printStackTrace();
 		}
 	}
 
 	public void registerEmployeeList(ArrayList<Employee> employeeList) {
 		try {
+			// TODO: 10/2/2021 Invalid solution [Pavel.Chachotkin]
 			LimitOfEmployeeValidator.canEmployeeListBeAddedToList(employeeList, list);
 		} catch (OutOfListLimitExaption e) {
+			// TODO: 10/2/2021 Add reworking for exception catching [Pavel.Chachotkin]
 			e.printStackTrace();
 		}
 	}
 
 	public void enterToOffice(Employee employee) {
+		// TODO: 10/2/2021 This solution has redundant check. Use equal instead [Pavel.Chachotkin]
 		for (Employee employee1 : list) {
 			if (employee1 == null) {
+				// TODO: 10/2/2021 Just break? [Pavel.Chachotkin]
 				break;
 			}
 			if (employee1.getIdCard().getId().equals(employee.getIdCard().getId()) &&
@@ -88,12 +93,14 @@ public class Journal implements Serializable {
 
 	public void goFromOffice(Employee employee) {
 		list.remove(employee);
+		// TODO: 10/2/2021 Just remove from list? [Pavel.Chachotkin]
 	}
 
 	public int getQuantityOfEmployeeInOffice() {
 		int quantityOfEmployeeInOffice = 0;
 		for (Employee employee : list) {
 			if (employee == null) {
+				// TODO: 10/2/2021 Does your list can contains NULL value? [Pavel.Chachotkin]
 				break;
 			}
 			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {

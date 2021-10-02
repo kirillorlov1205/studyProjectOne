@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class LimitOfEmployeeValidator {
 
+	// TODO: 10/2/2021 What I have to do when I need to create my own Journal class? [Pavel.Chachotkin]
 	public static int listSize = Journal.getListSize();
 
 	public static void canBeAddedToList(Employee employee, ArrayList<Employee> list) throws OutOfListLimitExaption {
