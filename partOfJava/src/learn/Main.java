@@ -1,6 +1,5 @@
 package learn;
 
-import javax.naming.PartialResultException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,10 +30,10 @@ public class Main {
 		names.add("Carl");
 
 
-		String [] arr = new String[]{"Kirilllll", "Tonny", "Tonny1"};
+		String[] arr = new String[]{"Kirilllll", "Tonny", "Tonny1"};
 		names.addAll(Arrays.asList(arr));
 
-		for(String i: names){
+		for (String i : names) {
 			System.out.println(i);
 		}
 //

@@ -15,22 +15,22 @@ public class Main {
 //Обязательный метод у класса птица:
 //	-- Вывести вес всех птиц на экран
 
-    //При создании объекта класса птица, должна быть возможность указать:
+	//При создании объекта класса птица, должна быть возможность указать:
 //	-- Вид и вес птицы
 //	-- вид птицы (вес дожен быть при этом проинициализирован по умолчанию в 0)
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 //    Test
 //        Birds bird = new Birds("Eagle");
-        Birds bird1 = new Birds("Eagle", 25.25);
-        Birds bird2 = new Birds("Eagle", 25.25);
-        Birds bird3 = new Birds("Eagle", 1000);
-        bird3.setWeight(25.25);
-        Birds bird4 = new Birds("Eagle", 25.25);
-        Birds bird5 = new Birds("Eagle");
+		Birds bird1 = new Birds("Eagle", 25.25);
+		Birds bird2 = new Birds("Eagle", 25.25);
+		Birds bird3 = new Birds("Eagle", 1000);
+		bird3.setWeight(25.25);
+		Birds bird4 = new Birds("Eagle", 25.25);
+		Birds bird5 = new Birds("Eagle");
 
 
 //        System.out.println(bird.getWeight());
-        System.out.println(Birds.getSumOfBirds());
-    }
+		System.out.println(Birds.getSumOfBirds());
+	}
 }

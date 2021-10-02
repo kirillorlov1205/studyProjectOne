@@ -1,11 +1,8 @@
 package accountingSystem;
 
-import accountingSystem.person.RoomForEmployee;
 import accountingSystem.person.employee.DevOps;
-import accountingSystem.person.employee.Employee;
 import accountingSystem.person.employee.manager.Director;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Test { //Tests
@@ -37,7 +34,7 @@ public class Test { //Tests
 		office1 = Journal.openJournal(office);
 
 //		office.registerEmployee(new DevOps());
-		System.out.println(Arrays.toString(office1.getAllEmployee().toArray()));
+		System.out.println(Arrays.toString(Journal.getAllEmployee().toArray()));
 
 //		registerMultipleUsers------------------------------
 //		Employee[] employees = new Employee[]{Tom, Donny, Donny1};

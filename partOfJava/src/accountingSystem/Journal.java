@@ -22,26 +22,31 @@ public class Journal implements Serializable {
 		listSize = size;
 	}
 
-
-	public static class IdCard {
-		private String id;
-
-		public IdCard() {
-			Random random = new Random();
-			id = Double.toString(random.nextDouble()).substring(0, 10);
+	public static void closeJournal(Journal journal) {
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Serializable.obraz"))) {
+			oos.writeObject(journal);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+	}
 
-		public String getId() {
-			return id;
+	//todo: Не получается реализовать десериализацию в методе
+	public static Journal openJournal(Journal journal) {
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Serializable.obraz"));
+			journal = (Journal) ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
 		}
+		return journal;
+	}
 
-		@Override
-		public String toString() {
-			return "IdCard{" +
-					"id='" + id + '\'' +
-					'}';
-		}
+	public static List<Employee> getAllEmployee() {
+		return list;
+	}
 
+	public static int getListSize() {
+		return listSize;
 	}
 
 	public void registerEmployee(Employee employee) {
@@ -81,27 +86,8 @@ public class Journal implements Serializable {
 		employee.setStatusOfPerson(StatusOfPerson.IN_OFFICE_WITHOUT_CARD);
 	}
 
-	public void goFromOffice(Employee employee){
+	public void goFromOffice(Employee employee) {
 		list.remove(employee);
-	}
-
-	public static void closeJournal(Journal journal) {
-		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Serializable.obraz"))){
-			oos.writeObject(journal);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-//todo: Не получается реализовать десериализацию в методе
-	public static Journal openJournal(Journal journal){
-		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Serializable.obraz"));
-			journal = (Journal) ois.readObject();
-		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return journal;
 	}
 
 	public int getQuantityOfEmployeeInOffice() {
@@ -143,17 +129,9 @@ public class Journal implements Serializable {
 		return quantityOfEmployeeInOfficeWithoutCard;
 	}
 
-
-	public static List<Employee> getAllEmployee() {
-		return list;
-	}
-
+	// TODO: 10/2/2021 How user will use this method? [Pavel.Chachotkin]
 	public Employee getEmployee(int index) {
 		return list.get(index);
-	}
-
-	public static int getListSize() {
-		return listSize;
 	}
 
 	@Override
@@ -161,5 +139,26 @@ public class Journal implements Serializable {
 		return "Journal{" +
 				"list=" + list +
 				'}';
+	}
+
+	public static class IdCard {
+		private final String id;
+
+		public IdCard() {
+			Random random = new Random();
+			id = Double.toString(random.nextDouble()).substring(0, 10);
+		}
+
+		public String getId() {
+			return id;
+		}
+
+		@Override
+		public String toString() {
+			return "IdCard{" +
+					"id='" + id + '\'' +
+					'}';
+		}
+
 	}
 }

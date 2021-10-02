@@ -46,16 +46,16 @@ public abstract class Employee extends Person implements Serializable {
 		return idCard;
 	}
 
+	public void setIdCard(Journal.IdCard idCard) {
+		this.idCard = idCard;
+	}
+
 	public StatusOfPerson getStatusOfPerson() {
 		return statusOfPerson;
 	}
 
 	public void setStatusOfPerson(StatusOfPerson statusOfPerson) {
 		this.statusOfPerson = statusOfPerson;
-	}
-
-	public void setIdCard(Journal.IdCard idCard) {
-		this.idCard = idCard;
 	}
 
 	@Override

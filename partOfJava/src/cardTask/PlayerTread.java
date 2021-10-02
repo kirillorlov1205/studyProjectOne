@@ -1,7 +1,5 @@
 package cardTask;
 
-import javax.swing.*;
-
 public class PlayerTread implements Runnable {
 	Table table;
 	private int countOfCards = 10;
@@ -24,7 +22,7 @@ public class PlayerTread implements Runnable {
 				countOfCards--;
 				System.out.println("Player" + Thread.currentThread().getName() + " placed 1 card on the table");
 			}
-		}while(countOfCards > 0);
+		} while (countOfCards > 0);
 
 
 	}
