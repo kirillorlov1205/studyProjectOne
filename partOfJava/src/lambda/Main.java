@@ -1,5 +1,7 @@
 package lambda;
 
+import java.util.function.Consumer;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -16,7 +18,6 @@ public class Main {
 //		Function<Integer, String> function = x -> x + "Concatination"; //преобразует результат в второй передоваемый тип
 //		System.out.println(function.apply(10));
 
-//		todo: Не понял для чего он нужен Consumer
 //		Consumer<Integer> consumer  = x -> System.out.println(x + 300);
 //		consumer.accept(100);
 

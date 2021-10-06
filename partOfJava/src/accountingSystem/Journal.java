@@ -5,7 +5,7 @@ import accountingSystem.person.employee.Employee;
 import accountingSystem.validators.EmployeeListValidator;
 import accountingSystem.validators.ExistingInListException;
 import accountingSystem.validators.LimitOfEmployeeValidator;
-import accountingSystem.validators.OutOfListLimitExaption;
+import accountingSystem.validators.OutOfListLimitException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,7 +14,10 @@ import java.util.Random;
 
 public class Journal implements Serializable {
 
+	// TODO: 10/6/2021 make not static 
 	static ArrayList<Employee> list;
+
+	// TODO: 10/6/2021 maxSizeOfList / make not static
 	static private int listSize;
 
 	public Journal(int size) {
@@ -22,9 +25,11 @@ public class Journal implements Serializable {
 		listSize = size;
 	}
 
-	public static void closeJournal(Journal journal) {
+	public void closeJournal(Journal journal) {
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Serializable.obraz"))) {
-			oos.writeObject(journal);
+
+			// TODO: 10/6/2021 this - объект у которого вызываем метод
+			oos.writeObject(this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,12 +56,16 @@ public class Journal implements Serializable {
 
 	public void registerEmployee(Employee employee) {
 		try {
+			//todo: закинуть в один валидатор
 			EmployeeListValidator.isEmployeeExistsInList(employee, list);
+			
 			LimitOfEmployeeValidator.canBeAddedToList(employee, list);
 			employee.setIdCard(new IdCard());
 			list.add(employee);
-		} catch (ExistingInListException | OutOfListLimitExaption e) {
+		} catch (ExistingInListException | OutOfListLimitException e) {
 			// TODO: 10/2/2021 Add reworking for exception catching [Pavel.Chachotkin]
+//			переделать вывод понятный для пользователя sout
+			
 			e.printStackTrace();
 		}
 	}
@@ -64,8 +73,9 @@ public class Journal implements Serializable {
 	public void registerEmployeeList(ArrayList<Employee> employeeList) {
 		try {
 			// TODO: 10/2/2021 Invalid solution [Pavel.Chachotkin]
+			// TODO: 10/6/2021 добавлять снаружи и переименовать методы валидатора
 			LimitOfEmployeeValidator.canEmployeeListBeAddedToList(employeeList, list);
-		} catch (OutOfListLimitExaption e) {
+		} catch (OutOfListLimitException e) {
 			// TODO: 10/2/2021 Add reworking for exception catching [Pavel.Chachotkin]
 			e.printStackTrace();
 		}
@@ -75,10 +85,12 @@ public class Journal implements Serializable {
 		// TODO: 10/2/2021 This solution has redundant check. Use equal instead [Pavel.Chachotkin]
 		for (Employee employee1 : list) {
 			if (employee1 == null) {
+				// TODO: 10/6/2021 неваилдно
 				// TODO: 10/2/2021 Just break? [Pavel.Chachotkin]
 				break;
 			}
 			if (employee1.getIdCard().getId().equals(employee.getIdCard().getId()) &&
+					// TODO: 10/6/2021 employee1.equals(employee)
 					employee1.getFirstName().equals(employee.getFirstName()) &&
 					employee1.getLastName().equals(employee.getLastName())) {
 				employee1.setStatusOfPerson(StatusOfPerson.IN_OFFICE);
@@ -92,8 +104,7 @@ public class Journal implements Serializable {
 	}
 
 	public void goFromOffice(Employee employee) {
-		list.remove(employee);
-		// TODO: 10/2/2021 Just remove from list? [Pavel.Chachotkin]
+		// TODO: 10/6/2021 Поменять статус
 	}
 
 	public int getQuantityOfEmployeeInOffice() {
@@ -136,10 +147,6 @@ public class Journal implements Serializable {
 		return quantityOfEmployeeInOfficeWithoutCard;
 	}
 
-	// TODO: 10/2/2021 How user will use this method? [Pavel.Chachotkin]
-	public Employee getEmployee(int index) {
-		return list.get(index);
-	}
 
 	@Override
 	public String toString() {
