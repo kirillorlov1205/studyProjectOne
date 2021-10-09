@@ -1,4 +1,4 @@
-package additionalTasks.Stream.secondTask;
+package additionalTasks.stream.secondTask;
 
 import java.util.ArrayList;
 import java.util.Collections;

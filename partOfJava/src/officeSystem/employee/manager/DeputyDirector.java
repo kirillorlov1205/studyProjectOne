@@ -1,6 +1,6 @@
 package officeSystem.employee.manager;
 
-import officeSystem.rooms.Vip;
+import officeSystem.system.rooms.Vip;
 
 public class DeputyDirector extends Manager implements Vip {
 

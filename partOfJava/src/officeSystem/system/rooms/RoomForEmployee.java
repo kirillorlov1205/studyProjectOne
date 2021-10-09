@@ -1,4 +1,4 @@
-package officeSystem.rooms;
+package officeSystem.system.rooms;
 
 import officeSystem.employee.Employee;
 

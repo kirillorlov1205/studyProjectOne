@@ -1,4 +1,4 @@
-package additionalTasks.Stream.thirdTask;
+package additionalTasks.stream.thirdTask;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package additionalTasks.Stream.thirdTask;
+package additionalTasks.stream.thirdTask;
 
 public class Price {
 

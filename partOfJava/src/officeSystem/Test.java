@@ -1,9 +1,15 @@
 package officeSystem;
 
 import officeSystem.employee.DevOps;
+import officeSystem.employee.Employee;
 import officeSystem.employee.manager.Director;
+import officeSystem.system.Office;
 
-public class Test { //Tests
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class Test {
 
 	public static void main(String[] args) {
 
@@ -42,7 +48,7 @@ public class Test { //Tests
 //		list.add(new DevOps());
 //		System.out.println("----");
 //
-//		office.registerEmployeeList(list);
+//		office.registerListOfEmployees(list);
 //		System.out.println();
 //		System.out.println(Arrays.toString(office.getAllEmployees().toArray()));
 
@@ -64,9 +70,10 @@ public class Test { //Tests
 
 
 //		getQuantityByStatus------------------------------
-//		System.out.println("quantity of persons in office: " + office.getQuantityOfEmployeeInOffice());
-//		System.out.println("quantity of persons out of office: " + office.getQuantityOfEmployeeOutOfOffice());
-//		System.out.println("quantity of persons in office with card: " + office.getQuantityOfEmployeeInOfficeWithoutCard());
+		office.enterToOffice(Tom);
+		System.out.println("quantity of persons in office: " + office.getQuantityOfEmployeeInOffice());
+		System.out.println("quantity of persons out of office: " + office.getQuantityOfEmployeeOutOfOffice());
+		System.out.println("quantity of persons in office with card: " + office.getQuantityOfEmployeeInOfficeWithoutCard());
 
 
 //		RoomForEmployee------------------------------
@@ -79,5 +86,8 @@ public class Test { //Tests
 //		System.out.println(roomForEmployee.getListOfEmployeeInTheRoom());
 
 
+//getQuantityOfEmployeeInOffice - Переписать эти методы через стримы
+//accountingSystem.Journal#getQuantityOfEmployeeOutOfOffice - Переписать эти методы через стримы
+//accountingSystem.Journal#getQuantityOfEmployeeInOfficeWithoutCard  - Переписать эти методы через стримы
 	}
 }

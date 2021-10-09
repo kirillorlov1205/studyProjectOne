@@ -1,6 +1,6 @@
 package officeSystem.employee;
 
-import officeSystem.rooms.Vip;
+import officeSystem.system.rooms.Vip;
 
 public class DevOps extends Employee implements Vip {
 

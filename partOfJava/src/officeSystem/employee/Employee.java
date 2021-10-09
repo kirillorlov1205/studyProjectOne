@@ -1,6 +1,6 @@
 package officeSystem.employee;
 
-import officeSystem.Office;
+import officeSystem.system.Office;
 
 import java.io.Serializable;
 import java.util.Objects;

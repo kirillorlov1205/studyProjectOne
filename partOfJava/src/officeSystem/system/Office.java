@@ -1,9 +1,9 @@
-package officeSystem;
+package officeSystem.system;
 
-import officeSystem.employee.StatusOfPerson;
 import officeSystem.employee.Employee;
-import officeSystem.validators.exeptions.ExistingInListException;
+import officeSystem.employee.StatusOfPerson;
 import officeSystem.validators.EmployeeListValidator;
+import officeSystem.validators.exeptions.ExistingInListException;
 import officeSystem.validators.exeptions.OutOfListLimitException;
 
 import java.io.*;
@@ -40,26 +40,29 @@ public class Office implements Serializable {
 
 	public void registerEmployee(Employee employee) {
 		try {
-			//todo: закинуть в один валидатор
 			EmployeeListValidator.isEmployeeExistsInList(employee, list);
 
 			EmployeeListValidator.isLimitOfEmployeesReached(employee, list, maxListSize);
 			employee.setIdCard(new IdCard());
 			list.add(employee);
 		} catch (ExistingInListException | OutOfListLimitException e) {
-			// TODO: 10/2/2021 Add reworking for exception catching [Pavel.Chachotkin]
-//			переделать вывод понятный для пользователя sout
+			System.out.println("Limit of the employees in the list reached. " +
+					"Try to remove one or make quantity of the new employee less." +
+					" Limit of persons is: " + maxListSize + ". " + "Quantity of persons in the list: " + list.size() + ".");
 			e.printStackTrace();
 		}
 	}
 
-	public void registerEmployeeList(ArrayList<Employee> employeeList) {
+	public void registerListOfEmployees(ArrayList<Employee> employeeList) {
 		try {
-			// TODO: 10/2/2021 Invalid solution [Pavel.Chachotkin]
-			// TODO: 10/6/2021 добавлять снаружи и переименовать методы валидатора
-			EmployeeListValidator.listOfEmployeesForRegistration(employeeList, list, maxListSize);
+			for (Employee employee : employeeList) {
+				EmployeeListValidator.isLimitOfEmployeesReached(employee, list, maxListSize);
+				list.add(employee);
+			}
 		} catch (OutOfListLimitException e) {
-			// TODO: 10/2/2021 Add reworking for exception catching [Pavel.Chachotkin]
+			System.out.println("Limit of the employees in the list reached. " +
+					"Try to remove one or make quantity of the new employee less." +
+					" Limit of persons is: " + maxListSize + ". " + "Quantity of persons in the list: " + list.size() + ".");
 			e.printStackTrace();
 		}
 	}
@@ -90,33 +93,25 @@ public class Office implements Serializable {
 	public int getMaxListSize() {
 		return maxListSize;
 	}
+
 	public int getQuantityOfEmployeeInOffice() {
-		int quantityOfEmployeeInOffice = 0;
-		for (Employee employee : this.list) {
-			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE) {
-				quantityOfEmployeeInOffice++;
-			}
-		}
-		return quantityOfEmployeeInOffice;
+		int quantityOfEmployeeInOfficelist = ((int) list.stream()
+				.filter(employee -> employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE)
+				.count());
+		return quantityOfEmployeeInOfficelist;
 	}
 
 	public int getQuantityOfEmployeeOutOfOffice() {
-		int quantityOfEmployeeOutOfOffice = 0;
-		for (Employee employee : this.list) {
-			if (employee.getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE) {
-				quantityOfEmployeeOutOfOffice++;
-			}
-		}
+		int quantityOfEmployeeOutOfOffice = ((int) list.stream()
+				.filter(employee -> employee.getStatusOfPerson() == StatusOfPerson.OUT_OF_OFFICE)
+				.count());
 		return quantityOfEmployeeOutOfOffice;
 	}
 
 	public int getQuantityOfEmployeeInOfficeWithoutCard() {
-		int quantityOfEmployeeInOfficeWithoutCard = 0;
-		for (Employee employee : this.list) {
-			if (employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD) {
-				quantityOfEmployeeInOfficeWithoutCard++;
-			}
-		}
+		int quantityOfEmployeeInOfficeWithoutCard = ((int) list.stream()
+				.filter(employee -> employee.getStatusOfPerson() == StatusOfPerson.IN_OFFICE_WITHOUT_CARD)
+				.count());
 		return quantityOfEmployeeInOfficeWithoutCard;
 	}
 
@@ -128,7 +123,7 @@ public class Office implements Serializable {
 				'}';
 	}
 
-	public static class IdCard implements Serializable{
+	public static class IdCard implements Serializable {
 		private final String id;
 
 		public IdCard() {
